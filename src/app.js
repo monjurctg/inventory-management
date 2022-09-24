@@ -21,11 +21,13 @@ app.use("/api/v1/users", userRoute);
 app.use("/api/v1/brands", brandRoute);
 
 // handling all (get,post,update,delete.....) unhandled routes
-app.all("*", (req, res, next) => {
+app.all("/*", (req, res, next) => {
+  res.statusCode = 404;
   next(new Error(`Can't find ${req.originalUrl} on the server`, 404));
 });
 
-// error handling middleware
 app.use(GloovalError);
+
+// error handling middleware
 
 module.exports = app;

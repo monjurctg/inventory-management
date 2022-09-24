@@ -3,7 +3,9 @@ const brandController = {};
 brandController.createBrand = (req, res) => {};
 
 // get all brands
-brandController.getAllBrand = (req, res) => {};
+brandController.getAllBrand = (req, res) => {
+  res.send("hitting");
+};
 
 // get  a single brand
 brandController.getSingleBrand = (req, res) => {};

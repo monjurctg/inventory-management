@@ -32,8 +32,8 @@ module.exports = (err, req, res, next) => {
   console.log("Find an error".bgRed.white.bold);
 
   console.log(`${(err?.message, err)}`.red.bold);
-  err.statusCode = err.statusCode || 500;
-  err.status = err.status || "error";
+  err.statusCode = err.statusCode ?? 500;
+  err.status = err.status ?? "error";
   if (process.env.NODE_ENV === "development") {
     sendErrorDev(err, res);
   } else {
