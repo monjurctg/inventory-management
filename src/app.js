@@ -18,7 +18,7 @@ app.get("/", (req, res) => {
 });
 // user route
 app.use("/api/v1/users", userRoute);
-app.use("/api/v1/users", brandRoute);
+app.use("/api/v1/brands", brandRoute);
 
 // handling all (get,post,update,delete.....) unhandled routes
 app.all("*", (req, res, next) => {
