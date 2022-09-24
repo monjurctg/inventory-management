@@ -4,6 +4,7 @@ const path = require("path");
 const cors = require("cors");
 const GloovalError = require("./middlewares/GloovalError");
 const userRoute = require("./routes/v1/user-route");
+const brandRoute = require("./routes/v1/brand-route");
 
 // global middile ware
 app.use(express.json());
@@ -16,7 +17,8 @@ app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "/public/index.html"));
 });
 // user route
-app.use("/api/users", userRoute);
+app.use("/api/v1/users", userRoute);
+app.use("/api/v1/users", brandRoute);
 
 // handling all (get,post,update,delete.....) unhandled routes
 app.all("*", (req, res, next) => {
