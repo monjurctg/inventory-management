@@ -23,9 +23,10 @@ const userSchema = mongoose.Schema(
       validate: [validator.isEmail, "Please provide a valid email"],
     },
     phone: {
-      type: {type: String, required: [true, "Please provide a address"]},
+      type: String,
+      required: [true, "Please provide a phone"],
     },
-    adress: {type: String, required: [true, "Please provide a address"]},
+    address: {type: String, required: [true, "Please provide a address"]},
     products: [
       {
         type: ObjectId,

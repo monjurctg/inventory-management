@@ -4,26 +4,25 @@ const userControllers = {};
 
 // create a user
 
-userControllers.createUser = (req, res) => {
+userControllers.createUser = async (req, res) => {
   // do someting like db
   let data = req.body;
   try {
-    const result = userService.createUser(data);
-    res.send(200).json({success: true, data: result});
+    const result = await userService.createUser(data);
+
+    res.status(200).json({success: true, data: result});
   } catch (err) {
     throw Error(err);
   }
 };
 
 // get all user
-userControllers.getALlUser = (req, res) => {
-  // do all operation here
-  let data = {
-    name: "monjur",
-  };
+userControllers.getALlUser = async (req, res) => {
   try {
-    const result = userService.createUser(data);
-    res.send(200).json({success: true, data: result});
+    const result = await userService.getAllUser();
+    // console.log(result);
+
+    res.status(200).json({success: true, data: result});
   } catch (err) {
     throw Error(err);
   }
